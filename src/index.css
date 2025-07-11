@@ -1,0 +1,15 @@
+@import "tailwindcss";
+/* *{
+  color: rgb(0, 0, 0);
+}
+button{
+  color: rgb(0, 0, 0);
+  background-color: aqua;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  } */
+  body {
+    background-color: rgb(45, 40, 40);
+    color: white;
+  }
