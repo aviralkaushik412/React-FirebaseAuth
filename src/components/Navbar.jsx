@@ -19,14 +19,13 @@ const Navbar = (e) => {
 
   return (
     <>
-    <nav className="flex px-1 py-7 items-center justify-between bg-amber-300">
-        <h1 className="text-2xl">hey {user?.email || "Guest"}</h1>
+    <nav className="flex px-1 py-7 items-center justify-between bg-gray-700">
+        <h1 className="text-2xl">hey {user?.displayName || "Guest"}</h1>
         <div className="flex gap-8 items-center">
           <Link to={'/'}> Home</Link>
           <Link to={'/About'}> About</Link>
           <Link to={'/Contact'}> Contact</Link>
           <Link to={'/Product'}> Product</Link>
-        </div>
         {user && (
           <button
             onClick={handleLogout}
@@ -35,6 +34,7 @@ const Navbar = (e) => {
             Logout
           </button>
         )}
+        </div>
     </nav>
     </>
   )

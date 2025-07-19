@@ -6,11 +6,16 @@ import axios from 'axios'
 import {Navigate, Route, Routes, UNSAFE_createClientRoutesWithHMRRevalidationOptOut } from "react-router-dom"
 import About from './pages/About'
 import Home from "./pages/Home"
-import Signin from "./components/Signin"
-import SignUp from "./components/SignUp"
 import {useAuth} from "./context/AuthContext"
 import Contact from "./pages/Contact"
 import Product from "./pages/Product"
+import Signin from "./components/Auth/Signin"
+
+import GoogleAuth from "./components/Auth/GoogleAuth"
+import { GoogleAuthProvider } from "firebase/auth"
+import SignUp from "./components/Auth/SignUp"
+import PasswordReset from "./components/Auth/PasswordReset"
+
 
 
 const App=()=>{
@@ -114,7 +119,7 @@ const App=()=>{
       })}
      </div> */}
      
-<Navbar user={user?.email} ></Navbar>
+<Navbar user={user?.displayName} ></Navbar>
       {/* <Signin></Signin>
       <SignUp></SignUp> */}
       
@@ -123,6 +128,7 @@ const App=()=>{
         <Route path="/" element={user ? <Home /> : <Navigate to="/signin" />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/PasswordReset" element={<PasswordReset />} />
         <Route path="/product" element={<Product />} />
         <Route path="/signin" element={!user ? <Signin /> : <Navigate to="/" />} />
         <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/" />} />
